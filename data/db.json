@@ -1,0 +1,40 @@
+{
+  "payments": [
+    {
+      "id": 1,
+      "name": "Tony",
+      "amount": 20.3,
+      "groceryItems": "Fruits"
+    },
+    {
+      "id": 2,
+      "name": "Steve",
+      "amount": 10.3,
+      "groceryItems": "Banans"
+    },
+    {
+      "id": 3,
+      "name": "Steve",
+      "amount": 23.5,
+      "groceryItems": "Cakes"
+    },
+    {
+      "id": 6,
+      "name": "Steve",
+      "amount": "10",
+      "groceryItems": "test"
+    },
+    {
+      "id": 7,
+      "name": "Maya",
+      "amount": "12",
+      "groceryItems": "asdf"
+    },
+    {
+      "id": 8,
+      "name": "Steve",
+      "amount": "10",
+      "groceryItems": "yttdf"
+    }
+  ]
+}
