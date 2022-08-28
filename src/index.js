@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { StoreProvider } from "easy-peasy";
-import store from "../src/easypeasy/store"
+import store from "../src/easypeasy/store";
+import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
 ReactDOM.render(
   <React.StrictMode>

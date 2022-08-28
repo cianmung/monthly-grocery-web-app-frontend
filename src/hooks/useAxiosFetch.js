@@ -4,9 +4,9 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 
 const useAxiosFetch = (dataUrl) => {
     const [data, setData] = useState([]);
-    const paymentDetails = useStoreState((state) => state.paymentDetails);
-    const isLoading = useStoreState((state) => state.isLoading);
     const setIsLoading= useStoreActions((actions) => actions.setIsLoading);
+    const currentMonth = useStoreState((state) => state.currentMonth);
+    const currentYear = useStoreState((state) => state.currentYear);
 
     useEffect(() => {
         let isMounted = true;

@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -54,6 +54,11 @@ code {
   justify-content: right;
 }
 
+.ui.menu .item > i.icon {
+  margin: 0px;
+  font-size: 18px;
+}
+
 .Footer {
   width: 100%;
   padding: 0.5em 1em;
@@ -84,24 +89,34 @@ code {
   line-height: 1.4em;
 }
 
-.Home, .About, .NewGrocery, .PaymentDetails, .EditPaymentDetail, .ResultPayments{
+.Home,
+.About,
+.NewGrocery,
+.PaymentDetails,
+.EditPaymentDetail,
+.ResultPayments,
+.Login {
   flex-grow: 1;
   width: 100%;
   padding: 0.5em;
   overflow: auto;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('./files/background-image.jpg');
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url("./files/background-image.jpg");
   background-repeat: repeat;
   background-size: 100%;
   background-position: center;
   border: 1px solid #d8d8d8;
-
 }
 
-.summary-for-each-person-container{
+.summary-for-each-person-container {
   width: 100%;
   box-shadow: 0px 0px 5px#1b1c1d50;
   border-radius: 5px;
-  margin: 1em 0em;
+  margin: 0.5em 0em;
 }
 
 .each-person-payment-container {
@@ -118,6 +133,7 @@ code {
 .person-profile-image-container img {
   width: 100%;
   margin-top: 5px;
+  border-radius: 50%;
 }
 
 .person-profile-payment-container {
@@ -153,28 +169,67 @@ code {
 .calculate-button-container {
   text-align: center;
 }
+/* Filter Function */
+.filter-function-component-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.each-filter-container {
+  width: 48%;
+}
+
+.each-filter-container h3,
+.payment-details .each-filter-container h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  text-align: center;
+}
+
+.filter-dropdown {
+  width: 100%;
+}
 
 /* Add New Grocery Page CSS */
 .add-new-grocery-container {
   padding: 15vh 0em 0em;
-} 
+}
 
 .add-new-grocery {
   background-color: #ffffffd4;
   box-shadow: 0px 0px 5px#1b1c1d50;
   border-radius: 5px;
   padding: 1em;
+  text-align: center;
 }
 
 .add-new-grocery h3 {
   font-size: 22px;
-  text-align: center;
   margin-top: 0.5em;
+}
+
+.add-new-grocery h4 {
+  margin: 0.5em 0;
+  color: green;
 }
 
 .add-new-grocery .new-grocery-amount-container {
   width: 100%;
   margin: 1em 0px;
+}
+
+.date-picker-container {
+  margin-bottom: 1em;
+}
+
+.date-picker-container .field,
+.date-picker-container .field .input {
+  width: 100%;
+}
+
+.date-picker-container .ui.icon.input > input {
+  cursor: pointer;
 }
 
 .add-new-grocery .payment-made-by {
@@ -185,8 +240,9 @@ code {
   font-size: 16px;
 }
 
-.ui.dropdown>.text>.image, .ui.dropdown>.text>img {
-  margin-top: -0.25em; 
+.ui.dropdown > .text > .image,
+.ui.dropdown > .text > img {
+  margin-top: -0.25em;
 }
 
 .add-new-grocery .button {
@@ -210,8 +266,8 @@ code {
   text-align: center;
 }
 
-.payment-detail-image img{
-  width: 50%;
+.payment-detail-image img {
+  width: 30%;
   border-radius: 50%;
 }
 
@@ -225,13 +281,13 @@ code {
   background: #ffffffbf;
 }
 
-.ui.card>.content.payment-records-content-container {
-  max-height: 35vh;
+.ui.card > .content.payment-records-content-container {
+  max-height: 40vh;
   overflow-y: auto;
 }
 
 .payment-records-content-header {
-  text-align: center!important;
+  text-align: center !important;
   padding: 0.2em 0em;
 }
 
@@ -251,11 +307,11 @@ code {
 
 .payment-records-feed-editor i {
   font-size: 20px;
-  margin: 0em 5px!important;
+  margin: 0em 5px !important;
 }
 
 .payment-records-feed-summary p {
-  margin: 0em!important;
+  margin: 0em !important;
   font-weight: 500;
 }
 
@@ -267,14 +323,15 @@ code {
 }
 
 .calculate-payment-container {
- background-color: #ffffffd4;
- padding: 1em;
- border-radius: 5px;
- box-shadow: 0px 0px 5px#1b1c1d50;
- width: 100%;
+  background-color: #ffffffd4;
+  padding: 2em 1em;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px#1b1c1d50;
+  width: 100%;
 }
 
-.ui.card, .ui.cards>.card {
+.ui.card,
+.ui.cards > .card {
   width: 100%;
 }
 
@@ -285,7 +342,7 @@ code {
 .payment-calculation {
   display: flex;
   justify-content: center;
-  padding: 1em;
+  padding-bottom: 1em;
 }
 
 .payment-calculation .content h4 {
@@ -301,4 +358,33 @@ p.summary-footer {
   display: flex;
   justify-content: space-between;
   font-weight: 500;
+}
+
+/* Login Page */
+.login-component {
+  text-align: center;
+}
+
+.login-component-container {
+  padding-top: 4em;
+}
+
+.require-safe-work-container {
+  padding: 2em 0;
+}
+
+.require-safe-work-container img {
+  width: 70%;
+}
+
+.safe-word-input-container h2 {
+  margin-bottom: 1em;
+}
+
+.safe-word-input-container .input {
+  width: 80%;
+}
+
+.safe-word-input-container .button {
+  margin-top: 2em;
 }

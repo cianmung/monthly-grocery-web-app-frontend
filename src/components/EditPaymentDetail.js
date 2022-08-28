@@ -2,7 +2,7 @@ import { Dropdown } from 'semantic-ui-react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import { useEffect } from 'react';
-import Avatar from "../files/dummyavatar.png";
+import SemanticDatepicker from 'react-semantic-ui-datepickers';
 
 const EditPaymentDetail = () => {
     const { id } = useParams();
@@ -16,10 +16,12 @@ const EditPaymentDetail = () => {
     const eachPayment = getEachPaymentById(id);
 
     const editAmount = useStoreState((state) => state.editAmount);
+    const editDate = useStoreState((state) => state.editDate);
     const editGroceries = useStoreState((state) => state.editGroceries);
     const editPaymentMadeBy = useStoreState((state) => state.editPaymentMadeBy);
 
     const setEditAmount = useStoreActions((actions) => actions.setEditAmount);
+    const setEditDate = useStoreActions((actions) => actions.setEditDate)
     const setEditGroceries = useStoreActions((actions) => actions.setEditGroceries);
     const setEditPaymentMadeBy = useStoreActions((actions) => actions.setEditPaymentMadeBy);
     const updatePaymentDetail = useStoreActions((actions) => actions.updatePaymentDetail);
@@ -27,13 +29,14 @@ const EditPaymentDetail = () => {
       useEffect(() => {
         if(eachPayment) {
             setEditAmount(eachPayment.amount);
+            setEditDate(Date.parse(eachPayment.date));
             setEditGroceries(eachPayment.groceryItems);
             setEditPaymentMadeBy(eachPayment.name);
         }
       },[paymentDetails, setEditAmount, setEditGroceries, setEditPaymentMadeBy])
 
       const handleEdit = (id) => {
-        const updatedPaymentDetail = {id, name: editPaymentMadeBy, amount: editAmount, groceryItems: editGroceries};
+        const updatedPaymentDetail = { _id: id, name: editPaymentMadeBy, amount: editAmount, groceryItems: editGroceries, date: editDate};
         updatePaymentDetail(updatedPaymentDetail);
         navigate(`/paymentdetail/${editPaymentMadeBy}`);
       }
@@ -65,12 +68,24 @@ const EditPaymentDetail = () => {
                   <input 
                       id="newAmount"
                       type="text"
-                      pattern="[0-9]*"
+                      pattern="[0.00-9.00]*"
                       placeholder="Amount"
                       required
                       value={isNaN(parseFloat(editAmount)) ? 0 : parseFloat(editAmount)}
                       onChange={(e) => setEditAmount(e.target.value)}
                     />
+                </div>
+                <div className="date-picker-container">
+                  <SemanticDatepicker 
+                    required
+                    placeholder="Choose the date you bought the grocery"
+                    format = "Do MMMM YYYY"  
+                    value={editDate}
+                    onChange={(event, data) =>  {
+                      if(!isNaN(Date.parse(data.value))){
+                        setEditDate(Date.parse(data.value))
+                      }}}      
+                  />
                 </div>
                 <div className="ui form">
                   <textarea 
@@ -100,8 +115,8 @@ const EditPaymentDetail = () => {
         {!isError && !isLoading && !eachPayment && 
           <div className="EditPaymentDetails">
             <>
-              <div class="ui negative message">
-                <div class="header">Error 404</div>
+              <div className="ui negative message">
+                <div className="header">Error 404</div>
                 <p>This record cannot be found.</p>
               </div>
             </>
